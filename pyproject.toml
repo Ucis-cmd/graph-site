@@ -1,0 +1,22 @@
+[project]
+name = "graph-site"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Ucis",email = "98166442+Ucis-cmd@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "flask (>=3.1.0,<4.0.0)",
+    "matplotlib (>=3.9.0,<3.10.0)",
+    "peewee (>=3.17.9,<4.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "mpld3 (>=0.5.10,<0.6.0)",
+    "numpy (>=2.2.2,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
