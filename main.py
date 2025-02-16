@@ -5,44 +5,15 @@ import numpy as np
 import pandas as pd
 from mpld3 import plugins, utils
 import matplotlib
+from custom_plugins.HighlightBar import HighlightBarPlugin
 
 matplotlib.use("agg")
 
 app = Flask(__name__)
 
 
-class HighlightBarPlugin(plugins.PluginBase):
-    JAVASCRIPT = """
-    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
-    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
-    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
-    HighlightBarPlugin.prototype.requiredProps = ["id"];
-    HighlightBarPlugin.prototype.defaultProps = {};
-
-    function HighlightBarPlugin(fig, props) {
-        mpld3.Plugin.call(this, fig, props);
-    };
-
-    HighlightBarPlugin.prototype.draw = function() {
-        var obj = mpld3.get_element(this.props.id);
-        console.log(obj);
-        var bars = obj.elements();
-        console.log(bars);
-
-        bars.on("mouseover", function(d, i) {
-            d3.select(this).style("fill", "orange");
-        }).on("mouseout", function(d, i) {
-            d3.select(this).style("fill", "skyblue");
-        });
-    };
-    """
-
-    def __init__(self, bar):
-        self.dict_ = {"type": "highlightbar", "id": utils.get_id(bar)}
-
-
 @app.route("/")
-def hello_world():
+def homepage():
     categories = ["Apples", "Bananas", "Oranges", "Grapes", "Pineapples"]
     np.random.seed(42)
     values = np.random.randint(10, 100, size=len(categories))
@@ -50,8 +21,6 @@ def hello_world():
     fig, ax = plt.subplots()
 
     bars = ax.bar(categories, values, color="skyblue")
-
-    labels = []
 
     for i, (bar, category) in enumerate(zip(bars, categories)):
         height = bar.get_height()
@@ -63,9 +32,10 @@ def hello_world():
             va="top",
             fontsize=10,
         )
-        tooltip = plugins.LineLabelTooltip(bar, label=str(i))
         highlight = HighlightBarPlugin(bar)
-        plugins.connect(plt.gcf(), tooltip, highlight)
+        plugins.connect(
+            plt.gcf(), highlight
+        )  # multiple plugins not working, update highlightbarplugin, if more functionality needed (just ask chatgpt or deepseek to do that)
 
     ax.set_xlabel("Fruits")
     ax.set_ylabel("Values")
@@ -74,14 +44,14 @@ def hello_world():
     ax.set_xticks([])
 
     html_str = mpld3.fig_to_html(fig)
-    with open("./templates/graph.html", "w") as Html_file:
+    with open("./templates/graph2.html", "w") as Html_file:
         Html_file.write(html_str)
 
-    return render_template("graph.html")
+    return render_template("base.html")
 
 
 @app.route("/graph1")
-def interactive_graph():
+def graph1():
     fig, ax = plt.subplots()
     ax.grid(True, alpha=0.3)
 
@@ -115,8 +85,13 @@ def interactive_graph():
 
     with open("./templates/graph1.html", "w") as Html_file:
         Html_file.write(html_str)
-
     return render_template("graph1.html")
+
+
+@app.route("/graph2")
+def graph2():
+
+    return render_template("graph2.html")
 
 
 if __name__ == "__main__":

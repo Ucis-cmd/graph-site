@@ -4,12 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
       rel="stylesheet"
-      type="text/css"
+      href="{{url_for('static',filename='dist/css/output.css')}}"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Knewave&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>The dino thing</title>
   </head>
-  <body></body>
+  <body class="font-knewave">
+    <div class="bg-gradient-to-t bg-repeat-y from-red-400 to-teal-300 h-screen">
+      {% include 'navbar.html' %}
+      <div class="flex justify-center content-center m-5">
+        <h1 class="text-2xl content-center">
+          Welcome to the dinosaur website :)
+        </h1>
+      </div>
+      <div class="flex justify-center">
+        <img
+          class="w-auto"
+          src="./static/img/boxer.gif"
+          alt="Dinosaur playing with ball"
+        />
+        <img
+          class="w-auto scale-x-[-1]"
+          src="./static/img/boxer.gif"
+          alt="Dinosaur playing with ball"
+        />
+      </div>
+      <div class="flex justify-center">{% include 'graph2.html' %}</div>
+    </div>
+  </body>
 </html>
