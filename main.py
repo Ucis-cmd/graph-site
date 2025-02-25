@@ -6,23 +6,44 @@ import pandas as pd
 from mpld3 import plugins, utils
 import matplotlib
 from custom_plugins.HighlightBar import HighlightBarPlugin
+from peewee import SqliteDatabase, fn
+from models import Dinosaur, db
+from data_conversions import db_to_csv, csv_to_db
+import os
 
 matplotlib.use("agg")
 
 app = Flask(__name__)
 
 
+def init_db():
+    if not Dinosaur.table_exists():
+        csv_to_db("./static/dist/csv/dinosaur_data.csv")
+
+
 @app.route("/")
 def homepage():
-    categories = ["Apples", "Bananas", "Oranges", "Grapes", "Pineapples"]
-    np.random.seed(42)
-    values = np.random.randint(10, 100, size=len(categories))
+    # get the unique values from 'type' column, place them in an array
+    # for each value in array, get the amount of values that are in the database
+    # and then make a bar graph from that
+
+    query = (
+        Dinosaur.select(Dinosaur.type, fn.COUNT(Dinosaur.name).alias("count"))
+        .group_by(Dinosaur.type)
+        .order_by(Dinosaur.type)
+    )
+    unique_types = []
+    type_count = []
+    print(query)
+    for item in query:
+        unique_types.append(item.type)
+        type_count.append(item.count)
 
     fig, ax = plt.subplots()
 
-    bars = ax.bar(categories, values, color="skyblue")
+    bars = ax.bar(unique_types, type_count, color="skyblue")
 
-    for i, (bar, category) in enumerate(zip(bars, categories)):
+    for i, (bar, category) in enumerate(zip(bars, unique_types)):
         height = bar.get_height()
         ax.text(
             bar.get_x() + bar.get_width() / 2,
@@ -37,9 +58,9 @@ def homepage():
             plt.gcf(), highlight
         )  # multiple plugins not working, update highlightbarplugin, if more functionality needed (just ask chatgpt or deepseek to do that)
 
-    ax.set_xlabel("Fruits")
-    ax.set_ylabel("Values")
-    ax.set_title("Fruit Values Bar Histogram")
+    ax.set_xlabel("Dinosaur types")
+    ax.set_ylabel("Amount")
+    ax.set_title("Dinosaurs")
 
     ax.set_xticks([])
 
@@ -90,9 +111,9 @@ def graph1():
 
 @app.route("/graph2")
 def graph2():
-
     return render_template("graph2.html")
 
 
 if __name__ == "__main__":
+    init_db()
     app.run(debug=True)
