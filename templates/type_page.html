@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+<div class="flex flex-col items-center content-center m-5">
+  <!-- might need to make this header reusable (using jinja templates?) so it doesnt repeat -->
+  <h1
+    class="text-2xl content-center bg-gradient-to-br from-white from-40% to-pink-500 text-transparent bg-clip-text"
+  >
+    {{ type.capitalize() }}
+  </h1>
+  {% if diet %}
+  <p
+    class="content-center bg-gradient-to-br from-white from-40% to-pink-500 text-transparent bg-clip-text"
+  >
+    {{diet.capitalize()}}
+  </p>
+  {% endif %}
+</div>
+{% for dinosaur in dinosaurs %}
+<a class="text-white hover:text-gray-500 m-5" href="{{dinosaur.link}}"
+  >{{dinosaur.name.capitalize()}}</a
+>
+{% endfor %} {% if request.path == unquote(url_for('type_page', type=type)) %}
+<div class="flex justify-center">{% include 'diet_pie.html' %}</div>
+{% endif %} {% endblock %}

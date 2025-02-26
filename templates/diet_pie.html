@@ -1,0 +1,439 @@
+
+
+<style>
+
+</style>
+
+<div id="fig_el6323622279061040963712420123"></div>
+<script>
+function mpld3_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
+
+if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
+   // already loaded: just create the figure
+   !function(mpld3){
+       
+    mpld3.register_plugin("highlightPie", HighlightPiePlugin);
+    HighlightPiePlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightPiePlugin.prototype.constructor = HighlightPiePlugin;
+    HighlightPiePlugin.prototype.requiredProps = ["id", "link"];
+    HighlightPiePlugin.prototype.defaultProps = {};
+
+    function HighlightPiePlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightPiePlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        console.log(this.props.id);
+        var pies = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        pies.each(function() {
+        var originalFill = d3.select(this).style("fill");
+        d3.select(this).attr("original-fill", originalFill);
+    });
+
+        pies.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", d3.select(this).attr("original-fill"));
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightPie", HighlightPiePlugin);
+    HighlightPiePlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightPiePlugin.prototype.constructor = HighlightPiePlugin;
+    HighlightPiePlugin.prototype.requiredProps = ["id", "link"];
+    HighlightPiePlugin.prototype.defaultProps = {};
+
+    function HighlightPiePlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightPiePlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        console.log(this.props.id);
+        var pies = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        pies.each(function() {
+        var originalFill = d3.select(this).style("fill");
+        d3.select(this).attr("original-fill", originalFill);
+    });
+
+        pies.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", d3.select(this).attr("original-fill"));
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightPie", HighlightPiePlugin);
+    HighlightPiePlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightPiePlugin.prototype.constructor = HighlightPiePlugin;
+    HighlightPiePlugin.prototype.requiredProps = ["id", "link"];
+    HighlightPiePlugin.prototype.defaultProps = {};
+
+    function HighlightPiePlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightPiePlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        console.log(this.props.id);
+        var pies = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        pies.each(function() {
+        var originalFill = d3.select(this).style("fill");
+        d3.select(this).attr("original-fill", originalFill);
+    });
+
+        pies.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", d3.select(this).attr("original-fill"));
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightPie", HighlightPiePlugin);
+    HighlightPiePlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightPiePlugin.prototype.constructor = HighlightPiePlugin;
+    HighlightPiePlugin.prototype.requiredProps = ["id", "link"];
+    HighlightPiePlugin.prototype.defaultProps = {};
+
+    function HighlightPiePlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightPiePlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        console.log(this.props.id);
+        var pies = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        pies.each(function() {
+        var originalFill = d3.select(this).style("fill");
+        d3.select(this).attr("original-fill", originalFill);
+    });
+
+        pies.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", d3.select(this).attr("original-fill"));
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+       mpld3.draw_figure("fig_el6323622279061040963712420123", {"width": 640.0, "height": 480.0, "axes": [{"bbox": [0.22375, 0.10999999999999999, 0.5775, 0.77], "xlim": [-1.25, 1.25], "ylim": [-1.25, 1.25], "xdomain": [-1.25, 1.25], "ydomain": [-1.25, 1.25], "xscale": "linear", "yscale": "linear", "axes": [{"position": "bottom", "nticks": 0, "tickvalues": [], "tickformat_formatter": "", "tickformat": "", "scale": "linear", "fontsize": null, "grid": {"gridOn": false}, "visible": true}, {"position": "left", "nticks": 0, "tickvalues": [], "tickformat_formatter": "", "tickformat": "", "scale": "linear", "fontsize": null, "grid": {"gridOn": false}, "visible": true}], "axesbg": "#FFFFFF", "axesbgalpha": null, "zoomable": true, "id": "el632362227906752096", "lines": [], "paths": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "L", "Z"], "id": "el632362227907117936", "dasharray": "none", "alpha": 1, "facecolor": "#1F77B4", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data02", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "C", "C", "L", "Z"], "id": "el632362227907117744", "dasharray": "none", "alpha": 1, "facecolor": "#FF7F0E", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data03", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "C", "C", "L", "Z"], "id": "el632362227907121296", "dasharray": "none", "alpha": 1, "facecolor": "#2CA02C", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data04", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "C", "C", "L", "Z"], "id": "el632362227907122976", "dasharray": "none", "alpha": 1, "facecolor": "#D62728", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}], "markers": [], "texts": [{"text": "carnivorous", "position": [-0.9801072434824519, 0.49938941846341695], "coordinates": "data", "h_anchor": "end", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907118656"}, {"text": "85.0%", "position": [-0.5346039509904282, 0.2723942282527728], "coordinates": "data", "h_anchor": "middle", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907119136"}, {"text": "herbivorous", "position": [0.6922528132169096, -0.8548602474049631], "coordinates": "data", "h_anchor": "start", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907120336"}, {"text": "1.7%", "position": [0.3775924435728597, -0.46628740767543436], "coordinates": "data", "h_anchor": "middle", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907120768"}, {"text": "omnivorous", "position": [0.9801074062041268, -0.49938909910391416], "coordinates": "data", "h_anchor": "start", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907122016"}, {"text": "11.7%", "position": [0.5346040397477054, -0.27239405405668043], "coordinates": "data", "h_anchor": "middle", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907122448"}, {"text": "unknown", "position": [1.0984924879176923, -0.05756955782702205], "coordinates": "data", "h_anchor": "start", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907123696"}, {"text": "1.7%", "position": [0.5991777206823775, -0.031401576996557476], "coordinates": "data", "h_anchor": "middle", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907124128"}], "collections": [], "images": [], "sharex": [], "sharey": []}], "data": {"data01": [[1.0, 0.0], [1.0, 0.11152237137308174], [0.9813441410249867, 0.2222631687720812], [0.944806046466878, 0.3276301795616935], [0.9082679519087694, 0.4329971903513058], [0.8543597562105041, 0.5315135428985828], [0.785316930880745, 0.619093949309834], [0.7162741055509858, 0.7066743557210852], [0.6330643860263176, 0.7820912494471454], [0.5391383229110004, 0.8422172337162864], [0.44521225979568313, 0.9023432179854275], [0.3418863632305091, 0.9463355398344141], [0.23344536385590547, 0.9723699203976766], [0.12500436448130187, 0.998404300960939], [0.012968220343194947, 1.0061158305969577], [-0.09801714032956065, 0.9951847266721969], [-0.20900250100231624, 0.9842536227474362], [-0.31738145724617794, 0.9548331005536874], [-0.4186597375374278, 0.9081431738250815], [-0.5199380178286777, 0.8614532470964755], [-0.6126960600285112, 0.7981483429427231], [-0.6930873625456357, 0.7208535967029189], [-0.7734786650627603, 0.6435588504631148], [-0.840376427076563, 0.5533576602259207], [-0.8910065241883678, 0.45399049973954686], [-0.9416366213001726, 0.35462333925317296], [-0.9752893991918252, 0.24748298353770531], [-0.9905693404435773, 0.13701234168196805], [-1.0058492816953293, 0.02654169982623078], [-1.0025422157464072, -0.08571082173774719], [-0.9807852804032304, -0.19509032201612836], [-0.9590283450600536, -0.30446982229450953], [-0.9191264953591886, -0.4094431887886414], [-0.862734385977792, -0.5056573733779843], [-0.8063422765963953, -0.6018715579673273], [-0.7342503248201375, -0.6879779791666287], [-0.6494480483301841, -0.7604059656000306], [-0.5646457718402307, -0.8328339520334325], [-0.4683217976614815, -0.890568320316748], [-0.36447049987915014, -0.9312149347588033], [-0.26061920209681877, -0.9718615492008587], [-0.15069620742547346, -0.9948506884876013], [-0.03925981575906901, -0.9992290362407229], [0.07217657590733545, -1.0036073839938446], [0.18356442175105314, -0.9893135713128962], [0.29028467725446205, -0.9569403357322089], [0.39700493275787097, -0.9245671001515217], [0.49756175859865565, -0.8745681995687293], [0.5877852522924729, -0.8090169943749476], [0.0, 0.0]], "data02": [[0.5877850651741028, -0.8090171217918396], [0.6019059419631958, -0.7987577319145203], [0.6157557964324951, -0.7881303429603577], [0.6293203830718994, -0.7771459817886353], [0.6428849697113037, -0.7661616206169128], [0.6561596393585205, -0.7548239231109619], [0.6691307425498962, -0.743144690990448], [0.0, 0.0]], "data03": [[0.6691307425498962, -0.743144690990448], [0.7601763010025024, -0.6611669063568115], [0.8353863954544067, -0.5631511807441711], [0.8910065293312073, -0.45399051904678345], [0.9466266632080078, -0.34482985734939575], [0.9817156195640564, -0.2263713926076889], [0.9945218563079834, -0.10452865064144135], [0.0, 0.0]], "data04": [[0.9945218563079834, -0.10452865064144135], [0.9963463544845581, -0.08716991543769836], [0.9977160096168518, -0.06976639479398727], [0.9986295104026794, -0.052335962653160095], [0.9995430111885071, -0.034905530512332916], [1.0, -0.017454175278544426], [1.0, 1.7484555314695172e-07], [0.0, 0.0]]}, "id": "el632362227906104096", "plugins": [{"type": "reset"}, {"type": "zoom", "button": true, "enabled": false}, {"type": "boxzoom", "button": true, "enabled": false}, {"type": "highlightPie", "id": "el632362227907117936", "link": "/large theropod/carnivorous"}, {"type": "highlightPie", "id": "el632362227907117744", "link": "/large theropod/herbivorous"}, {"type": "highlightPie", "id": "el632362227907121296", "link": "/large theropod/omnivorous"}, {"type": "highlightPie", "id": "el632362227907122976", "link": "/large theropod/unknown"}]});
+   }(mpld3);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/mpld3
+   require.config({paths: {d3: "https://d3js.org/d3.v5"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.5.10.js", function(){
+         
+    mpld3.register_plugin("highlightPie", HighlightPiePlugin);
+    HighlightPiePlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightPiePlugin.prototype.constructor = HighlightPiePlugin;
+    HighlightPiePlugin.prototype.requiredProps = ["id", "link"];
+    HighlightPiePlugin.prototype.defaultProps = {};
+
+    function HighlightPiePlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightPiePlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        console.log(this.props.id);
+        var pies = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        pies.each(function() {
+        var originalFill = d3.select(this).style("fill");
+        d3.select(this).attr("original-fill", originalFill);
+    });
+
+        pies.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", d3.select(this).attr("original-fill"));
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightPie", HighlightPiePlugin);
+    HighlightPiePlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightPiePlugin.prototype.constructor = HighlightPiePlugin;
+    HighlightPiePlugin.prototype.requiredProps = ["id", "link"];
+    HighlightPiePlugin.prototype.defaultProps = {};
+
+    function HighlightPiePlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightPiePlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        console.log(this.props.id);
+        var pies = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        pies.each(function() {
+        var originalFill = d3.select(this).style("fill");
+        d3.select(this).attr("original-fill", originalFill);
+    });
+
+        pies.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", d3.select(this).attr("original-fill"));
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightPie", HighlightPiePlugin);
+    HighlightPiePlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightPiePlugin.prototype.constructor = HighlightPiePlugin;
+    HighlightPiePlugin.prototype.requiredProps = ["id", "link"];
+    HighlightPiePlugin.prototype.defaultProps = {};
+
+    function HighlightPiePlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightPiePlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        console.log(this.props.id);
+        var pies = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        pies.each(function() {
+        var originalFill = d3.select(this).style("fill");
+        d3.select(this).attr("original-fill", originalFill);
+    });
+
+        pies.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", d3.select(this).attr("original-fill"));
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightPie", HighlightPiePlugin);
+    HighlightPiePlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightPiePlugin.prototype.constructor = HighlightPiePlugin;
+    HighlightPiePlugin.prototype.requiredProps = ["id", "link"];
+    HighlightPiePlugin.prototype.defaultProps = {};
+
+    function HighlightPiePlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightPiePlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        console.log(this.props.id);
+        var pies = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        pies.each(function() {
+        var originalFill = d3.select(this).style("fill");
+        d3.select(this).attr("original-fill", originalFill);
+    });
+
+        pies.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", d3.select(this).attr("original-fill"));
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+         mpld3.draw_figure("fig_el6323622279061040963712420123", {"width": 640.0, "height": 480.0, "axes": [{"bbox": [0.22375, 0.10999999999999999, 0.5775, 0.77], "xlim": [-1.25, 1.25], "ylim": [-1.25, 1.25], "xdomain": [-1.25, 1.25], "ydomain": [-1.25, 1.25], "xscale": "linear", "yscale": "linear", "axes": [{"position": "bottom", "nticks": 0, "tickvalues": [], "tickformat_formatter": "", "tickformat": "", "scale": "linear", "fontsize": null, "grid": {"gridOn": false}, "visible": true}, {"position": "left", "nticks": 0, "tickvalues": [], "tickformat_formatter": "", "tickformat": "", "scale": "linear", "fontsize": null, "grid": {"gridOn": false}, "visible": true}], "axesbg": "#FFFFFF", "axesbgalpha": null, "zoomable": true, "id": "el632362227906752096", "lines": [], "paths": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "L", "Z"], "id": "el632362227907117936", "dasharray": "none", "alpha": 1, "facecolor": "#1F77B4", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data02", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "C", "C", "L", "Z"], "id": "el632362227907117744", "dasharray": "none", "alpha": 1, "facecolor": "#FF7F0E", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data03", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "C", "C", "L", "Z"], "id": "el632362227907121296", "dasharray": "none", "alpha": 1, "facecolor": "#2CA02C", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data04", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "C", "C", "L", "Z"], "id": "el632362227907122976", "dasharray": "none", "alpha": 1, "facecolor": "#D62728", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}], "markers": [], "texts": [{"text": "carnivorous", "position": [-0.9801072434824519, 0.49938941846341695], "coordinates": "data", "h_anchor": "end", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907118656"}, {"text": "85.0%", "position": [-0.5346039509904282, 0.2723942282527728], "coordinates": "data", "h_anchor": "middle", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907119136"}, {"text": "herbivorous", "position": [0.6922528132169096, -0.8548602474049631], "coordinates": "data", "h_anchor": "start", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907120336"}, {"text": "1.7%", "position": [0.3775924435728597, -0.46628740767543436], "coordinates": "data", "h_anchor": "middle", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907120768"}, {"text": "omnivorous", "position": [0.9801074062041268, -0.49938909910391416], "coordinates": "data", "h_anchor": "start", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907122016"}, {"text": "11.7%", "position": [0.5346040397477054, -0.27239405405668043], "coordinates": "data", "h_anchor": "middle", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907122448"}, {"text": "unknown", "position": [1.0984924879176923, -0.05756955782702205], "coordinates": "data", "h_anchor": "start", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907123696"}, {"text": "1.7%", "position": [0.5991777206823775, -0.031401576996557476], "coordinates": "data", "h_anchor": "middle", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907124128"}], "collections": [], "images": [], "sharex": [], "sharey": []}], "data": {"data01": [[1.0, 0.0], [1.0, 0.11152237137308174], [0.9813441410249867, 0.2222631687720812], [0.944806046466878, 0.3276301795616935], [0.9082679519087694, 0.4329971903513058], [0.8543597562105041, 0.5315135428985828], [0.785316930880745, 0.619093949309834], [0.7162741055509858, 0.7066743557210852], [0.6330643860263176, 0.7820912494471454], [0.5391383229110004, 0.8422172337162864], [0.44521225979568313, 0.9023432179854275], [0.3418863632305091, 0.9463355398344141], [0.23344536385590547, 0.9723699203976766], [0.12500436448130187, 0.998404300960939], [0.012968220343194947, 1.0061158305969577], [-0.09801714032956065, 0.9951847266721969], [-0.20900250100231624, 0.9842536227474362], [-0.31738145724617794, 0.9548331005536874], [-0.4186597375374278, 0.9081431738250815], [-0.5199380178286777, 0.8614532470964755], [-0.6126960600285112, 0.7981483429427231], [-0.6930873625456357, 0.7208535967029189], [-0.7734786650627603, 0.6435588504631148], [-0.840376427076563, 0.5533576602259207], [-0.8910065241883678, 0.45399049973954686], [-0.9416366213001726, 0.35462333925317296], [-0.9752893991918252, 0.24748298353770531], [-0.9905693404435773, 0.13701234168196805], [-1.0058492816953293, 0.02654169982623078], [-1.0025422157464072, -0.08571082173774719], [-0.9807852804032304, -0.19509032201612836], [-0.9590283450600536, -0.30446982229450953], [-0.9191264953591886, -0.4094431887886414], [-0.862734385977792, -0.5056573733779843], [-0.8063422765963953, -0.6018715579673273], [-0.7342503248201375, -0.6879779791666287], [-0.6494480483301841, -0.7604059656000306], [-0.5646457718402307, -0.8328339520334325], [-0.4683217976614815, -0.890568320316748], [-0.36447049987915014, -0.9312149347588033], [-0.26061920209681877, -0.9718615492008587], [-0.15069620742547346, -0.9948506884876013], [-0.03925981575906901, -0.9992290362407229], [0.07217657590733545, -1.0036073839938446], [0.18356442175105314, -0.9893135713128962], [0.29028467725446205, -0.9569403357322089], [0.39700493275787097, -0.9245671001515217], [0.49756175859865565, -0.8745681995687293], [0.5877852522924729, -0.8090169943749476], [0.0, 0.0]], "data02": [[0.5877850651741028, -0.8090171217918396], [0.6019059419631958, -0.7987577319145203], [0.6157557964324951, -0.7881303429603577], [0.6293203830718994, -0.7771459817886353], [0.6428849697113037, -0.7661616206169128], [0.6561596393585205, -0.7548239231109619], [0.6691307425498962, -0.743144690990448], [0.0, 0.0]], "data03": [[0.6691307425498962, -0.743144690990448], [0.7601763010025024, -0.6611669063568115], [0.8353863954544067, -0.5631511807441711], [0.8910065293312073, -0.45399051904678345], [0.9466266632080078, -0.34482985734939575], [0.9817156195640564, -0.2263713926076889], [0.9945218563079834, -0.10452865064144135], [0.0, 0.0]], "data04": [[0.9945218563079834, -0.10452865064144135], [0.9963463544845581, -0.08716991543769836], [0.9977160096168518, -0.06976639479398727], [0.9986295104026794, -0.052335962653160095], [0.9995430111885071, -0.034905530512332916], [1.0, -0.017454175278544426], [1.0, 1.7484555314695172e-07], [0.0, 0.0]]}, "id": "el632362227906104096", "plugins": [{"type": "reset"}, {"type": "zoom", "button": true, "enabled": false}, {"type": "boxzoom", "button": true, "enabled": false}, {"type": "highlightPie", "id": "el632362227907117936", "link": "/large theropod/carnivorous"}, {"type": "highlightPie", "id": "el632362227907117744", "link": "/large theropod/herbivorous"}, {"type": "highlightPie", "id": "el632362227907121296", "link": "/large theropod/omnivorous"}, {"type": "highlightPie", "id": "el632362227907122976", "link": "/large theropod/unknown"}]});
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & mpld3
+    mpld3_load_lib("https://d3js.org/d3.v5.js", function(){
+         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.5.10.js", function(){
+                 
+    mpld3.register_plugin("highlightPie", HighlightPiePlugin);
+    HighlightPiePlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightPiePlugin.prototype.constructor = HighlightPiePlugin;
+    HighlightPiePlugin.prototype.requiredProps = ["id", "link"];
+    HighlightPiePlugin.prototype.defaultProps = {};
+
+    function HighlightPiePlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightPiePlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        console.log(this.props.id);
+        var pies = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        pies.each(function() {
+        var originalFill = d3.select(this).style("fill");
+        d3.select(this).attr("original-fill", originalFill);
+    });
+
+        pies.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", d3.select(this).attr("original-fill"));
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightPie", HighlightPiePlugin);
+    HighlightPiePlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightPiePlugin.prototype.constructor = HighlightPiePlugin;
+    HighlightPiePlugin.prototype.requiredProps = ["id", "link"];
+    HighlightPiePlugin.prototype.defaultProps = {};
+
+    function HighlightPiePlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightPiePlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        console.log(this.props.id);
+        var pies = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        pies.each(function() {
+        var originalFill = d3.select(this).style("fill");
+        d3.select(this).attr("original-fill", originalFill);
+    });
+
+        pies.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", d3.select(this).attr("original-fill"));
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightPie", HighlightPiePlugin);
+    HighlightPiePlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightPiePlugin.prototype.constructor = HighlightPiePlugin;
+    HighlightPiePlugin.prototype.requiredProps = ["id", "link"];
+    HighlightPiePlugin.prototype.defaultProps = {};
+
+    function HighlightPiePlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightPiePlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        console.log(this.props.id);
+        var pies = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        pies.each(function() {
+        var originalFill = d3.select(this).style("fill");
+        d3.select(this).attr("original-fill", originalFill);
+    });
+
+        pies.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", d3.select(this).attr("original-fill"));
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightPie", HighlightPiePlugin);
+    HighlightPiePlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightPiePlugin.prototype.constructor = HighlightPiePlugin;
+    HighlightPiePlugin.prototype.requiredProps = ["id", "link"];
+    HighlightPiePlugin.prototype.defaultProps = {};
+
+    function HighlightPiePlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightPiePlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        console.log(this.props.id);
+        var pies = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        pies.each(function() {
+        var originalFill = d3.select(this).style("fill");
+        d3.select(this).attr("original-fill", originalFill);
+    });
+
+        pies.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", d3.select(this).attr("original-fill"));
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+                 mpld3.draw_figure("fig_el6323622279061040963712420123", {"width": 640.0, "height": 480.0, "axes": [{"bbox": [0.22375, 0.10999999999999999, 0.5775, 0.77], "xlim": [-1.25, 1.25], "ylim": [-1.25, 1.25], "xdomain": [-1.25, 1.25], "ydomain": [-1.25, 1.25], "xscale": "linear", "yscale": "linear", "axes": [{"position": "bottom", "nticks": 0, "tickvalues": [], "tickformat_formatter": "", "tickformat": "", "scale": "linear", "fontsize": null, "grid": {"gridOn": false}, "visible": true}, {"position": "left", "nticks": 0, "tickvalues": [], "tickformat_formatter": "", "tickformat": "", "scale": "linear", "fontsize": null, "grid": {"gridOn": false}, "visible": true}], "axesbg": "#FFFFFF", "axesbgalpha": null, "zoomable": true, "id": "el632362227906752096", "lines": [], "paths": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "L", "Z"], "id": "el632362227907117936", "dasharray": "none", "alpha": 1, "facecolor": "#1F77B4", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data02", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "C", "C", "L", "Z"], "id": "el632362227907117744", "dasharray": "none", "alpha": 1, "facecolor": "#FF7F0E", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data03", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "C", "C", "L", "Z"], "id": "el632362227907121296", "dasharray": "none", "alpha": 1, "facecolor": "#2CA02C", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data04", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "C", "C", "L", "Z"], "id": "el632362227907122976", "dasharray": "none", "alpha": 1, "facecolor": "#D62728", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}], "markers": [], "texts": [{"text": "carnivorous", "position": [-0.9801072434824519, 0.49938941846341695], "coordinates": "data", "h_anchor": "end", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907118656"}, {"text": "85.0%", "position": [-0.5346039509904282, 0.2723942282527728], "coordinates": "data", "h_anchor": "middle", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907119136"}, {"text": "herbivorous", "position": [0.6922528132169096, -0.8548602474049631], "coordinates": "data", "h_anchor": "start", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907120336"}, {"text": "1.7%", "position": [0.3775924435728597, -0.46628740767543436], "coordinates": "data", "h_anchor": "middle", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907120768"}, {"text": "omnivorous", "position": [0.9801074062041268, -0.49938909910391416], "coordinates": "data", "h_anchor": "start", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907122016"}, {"text": "11.7%", "position": [0.5346040397477054, -0.27239405405668043], "coordinates": "data", "h_anchor": "middle", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907122448"}, {"text": "unknown", "position": [1.0984924879176923, -0.05756955782702205], "coordinates": "data", "h_anchor": "start", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907123696"}, {"text": "1.7%", "position": [0.5991777206823775, -0.031401576996557476], "coordinates": "data", "h_anchor": "middle", "v_baseline": "central", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el632362227907124128"}], "collections": [], "images": [], "sharex": [], "sharey": []}], "data": {"data01": [[1.0, 0.0], [1.0, 0.11152237137308174], [0.9813441410249867, 0.2222631687720812], [0.944806046466878, 0.3276301795616935], [0.9082679519087694, 0.4329971903513058], [0.8543597562105041, 0.5315135428985828], [0.785316930880745, 0.619093949309834], [0.7162741055509858, 0.7066743557210852], [0.6330643860263176, 0.7820912494471454], [0.5391383229110004, 0.8422172337162864], [0.44521225979568313, 0.9023432179854275], [0.3418863632305091, 0.9463355398344141], [0.23344536385590547, 0.9723699203976766], [0.12500436448130187, 0.998404300960939], [0.012968220343194947, 1.0061158305969577], [-0.09801714032956065, 0.9951847266721969], [-0.20900250100231624, 0.9842536227474362], [-0.31738145724617794, 0.9548331005536874], [-0.4186597375374278, 0.9081431738250815], [-0.5199380178286777, 0.8614532470964755], [-0.6126960600285112, 0.7981483429427231], [-0.6930873625456357, 0.7208535967029189], [-0.7734786650627603, 0.6435588504631148], [-0.840376427076563, 0.5533576602259207], [-0.8910065241883678, 0.45399049973954686], [-0.9416366213001726, 0.35462333925317296], [-0.9752893991918252, 0.24748298353770531], [-0.9905693404435773, 0.13701234168196805], [-1.0058492816953293, 0.02654169982623078], [-1.0025422157464072, -0.08571082173774719], [-0.9807852804032304, -0.19509032201612836], [-0.9590283450600536, -0.30446982229450953], [-0.9191264953591886, -0.4094431887886414], [-0.862734385977792, -0.5056573733779843], [-0.8063422765963953, -0.6018715579673273], [-0.7342503248201375, -0.6879779791666287], [-0.6494480483301841, -0.7604059656000306], [-0.5646457718402307, -0.8328339520334325], [-0.4683217976614815, -0.890568320316748], [-0.36447049987915014, -0.9312149347588033], [-0.26061920209681877, -0.9718615492008587], [-0.15069620742547346, -0.9948506884876013], [-0.03925981575906901, -0.9992290362407229], [0.07217657590733545, -1.0036073839938446], [0.18356442175105314, -0.9893135713128962], [0.29028467725446205, -0.9569403357322089], [0.39700493275787097, -0.9245671001515217], [0.49756175859865565, -0.8745681995687293], [0.5877852522924729, -0.8090169943749476], [0.0, 0.0]], "data02": [[0.5877850651741028, -0.8090171217918396], [0.6019059419631958, -0.7987577319145203], [0.6157557964324951, -0.7881303429603577], [0.6293203830718994, -0.7771459817886353], [0.6428849697113037, -0.7661616206169128], [0.6561596393585205, -0.7548239231109619], [0.6691307425498962, -0.743144690990448], [0.0, 0.0]], "data03": [[0.6691307425498962, -0.743144690990448], [0.7601763010025024, -0.6611669063568115], [0.8353863954544067, -0.5631511807441711], [0.8910065293312073, -0.45399051904678345], [0.9466266632080078, -0.34482985734939575], [0.9817156195640564, -0.2263713926076889], [0.9945218563079834, -0.10452865064144135], [0.0, 0.0]], "data04": [[0.9945218563079834, -0.10452865064144135], [0.9963463544845581, -0.08716991543769836], [0.9977160096168518, -0.06976639479398727], [0.9986295104026794, -0.052335962653160095], [0.9995430111885071, -0.034905530512332916], [1.0, -0.017454175278544426], [1.0, 1.7484555314695172e-07], [0.0, 0.0]]}, "id": "el632362227906104096", "plugins": [{"type": "reset"}, {"type": "zoom", "button": true, "enabled": false}, {"type": "boxzoom", "button": true, "enabled": false}, {"type": "highlightPie", "id": "el632362227907117936", "link": "/large theropod/carnivorous"}, {"type": "highlightPie", "id": "el632362227907117744", "link": "/large theropod/herbivorous"}, {"type": "highlightPie", "id": "el632362227907121296", "link": "/large theropod/omnivorous"}, {"type": "highlightPie", "id": "el632362227907122976", "link": "/large theropod/unknown"}]});
+            })
+         });
+}
+</script>
