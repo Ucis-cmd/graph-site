@@ -44,5 +44,20 @@
       <div class="flex justify-center">{% include 'graph2.html' %}</div>
       {% endblock %}
     </div>
+    <script>
+      function toggleDropdown(headerElement) {
+        const parentDiv = headerElement.closest("div");
+        const contentDiv = parentDiv.querySelector("div.pl-5");
+        const isOpen = parentDiv.getAttribute("data-open") === "true";
+
+        if (isOpen) {
+          contentDiv.classList.add("hidden");
+          parentDiv.setAttribute("data-open", "false");
+        } else {
+          contentDiv.classList.remove("hidden");
+          parentDiv.setAttribute("data-open", "true");
+        }
+      }
+    </script>
   </body>
 </html>

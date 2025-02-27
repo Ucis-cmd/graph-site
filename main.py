@@ -1,25 +1,25 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template
 import matplotlib.pyplot as plt
 import mpld3
 import numpy as np
 import pandas as pd
-from mpld3 import plugins, utils
+from mpld3 import plugins
 import matplotlib
 from custom_plugins.HighlightBar import HighlightBarPlugin
 from custom_plugins.HighlightPie import HighlightPiePlugin
-from peewee import SqliteDatabase, fn
-from models import Dinosaur, db
+from peewee import fn
+from models import Dinosaur
 from data_conversions import db_to_csv, csv_to_db
 from werkzeug.urls import unquote
 
 matplotlib.use("agg")
 
 app = Flask(__name__)
+app.jinja_env.filters["unquote"] = unquote
 
 # whats left:
 # make the navbar links
-# make the website responsive (resize depending on screen size, might be hard because of the graphs, havent checked how to resize them, since the html is difficult to access)
-# make the huge blobs of dino names easier on the eyes (align them somehow, maybe make them bigger, or group them by letter, place each letter under a dropdown, etc.)
+# make the website responsive, but not necessary (resize depending on screen size, might be hard because of the graphs, havent checked how to resize them, since the html is difficult to access)
 # change the design of the graphs, select different colors, (check if the background can be made transparent?)
 # ADD MORE F_ING DINOSAUR GIFS (can be found in static/img folder)
 
@@ -29,9 +29,36 @@ def init_db():
         csv_to_db("./static/dist/csv/dinosaur_data.csv")
 
 
+def get_data_alphabetical(*comparisons):
+    first_letter_query = fn.Upper(fn.Substr(Dinosaur.name, 1, 1))
+    alphabetical_query = (
+        Dinosaur.select(
+            first_letter_query.alias("first_letter"),
+            fn.GROUP_CONCAT(Dinosaur.name).alias("dinosaur_names"),
+            fn.GROUP_CONCAT(Dinosaur.link).alias("dinosaur_links"),
+            fn.COUNT(Dinosaur.id).alias("count"),
+        )
+        .where(*comparisons)
+        .group_by(first_letter_query)
+        .order_by(first_letter_query)
+    )
+
+    # convert the query result to a list of dictionaries
+    alphabetical_groups = []
+    for group in alphabetical_query:
+        alphabetical_groups.append(
+            {
+                "first_letter": group.first_letter,
+                "dinosaur_names": group.dinosaur_names.split(","),
+                "dinosaur_links": group.dinosaur_links.split(","),
+                "count": group.count,
+            }
+        )
+    return alphabetical_groups
+
+
 @app.route("/")
 def homepage():
-
     query = (
         Dinosaur.select(
             Dinosaur.type, Dinosaur.link, fn.COUNT(Dinosaur.name).alias("count")
@@ -81,20 +108,17 @@ def homepage():
 
 @app.route("/<type>")
 def type_page(type):
-    query = Dinosaur.select().where(Dinosaur.type == type)
-    query2 = (
+    diet_query = (
         Dinosaur.select(Dinosaur.diet, fn.COUNT(Dinosaur.name).alias("count"))
         .where(Dinosaur.type == type)
         .group_by(Dinosaur.diet)
     )
 
-    dinosaurs = []
-    for item in query:
-        dinosaurs.append({"name": item.name, "link": item.link})
+    alphabetical_groups = get_data_alphabetical(Dinosaur.type == type)
 
     diets = []
     diet_count = []
-    for item in query2:
+    for item in diet_query:
         diets.append(item.diet)
         diet_count.append(item.count)
 
@@ -111,20 +135,23 @@ def type_page(type):
     return render_template(
         "type_page.html",
         type=type,
-        dinosaurs=dinosaurs,
-        unquote=unquote,  # unquote is used to convert url to the same format as request.path
+        alphabetical_groups=alphabetical_groups,
+        zip=zip,  # unquote is used to convert url to the same format as request.path
     )
 
 
 @app.route("/<type>/<diet>")
 def type_diet_page(type, diet):
-    query = Dinosaur.select().where(Dinosaur.type == type, Dinosaur.diet == diet)
-    dinosaurs = []
-    for item in query:
-        dinosaurs.append({"name": item.name, "link": item.link})
+    alphabetical_groups = get_data_alphabetical(
+        Dinosaur.type == type, Dinosaur.diet == diet
+    )
 
     return render_template(
-        "type_page.html", type=type, diet=diet, dinosaurs=dinosaurs, unquote=unquote
+        "type_page.html",
+        type=type,
+        diet=diet,
+        alphabetical_groups=alphabetical_groups,
+        zip=zip,
     )
 
 
