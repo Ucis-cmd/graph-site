@@ -1,32 +1,34 @@
 {% extends "base.html" %} {% block content %}
-<div class="flex flex-col items-center content-center m-5">
-  <!-- might need to make this header reusable (using jinja templates?) so it doesnt repeat -->
-  <h1
-    class="text-2xl content-center bg-gradient-to-br from-white from-40% to-pink-500 text-transparent bg-clip-text"
-  >
-    {{ type.capitalize() }}
-  </h1>
-  {% if diet %}
-  <p
-    class="content-center bg-gradient-to-br from-white from-40% to-pink-500 text-transparent bg-clip-text"
-  >
-    {{diet.capitalize()}}
-  </p>
-  {% endif %}
-</div>
-{% if request.path == url_for('type_page', type=type)|unquote %}
-<div class="flex justify-center">{% include 'diet_pie.html' %}</div>
-{% endif %} {% for group in alphabetical_groups %}
-<div class="m-5">
-  <h3 class="text-xl text-white cursor-pointer" onclick="toggleDropdown(this)">
-    {{ group.first_letter }} ▼
-  </h3>
-  <div class="pl-5 hidden">
-    {% for dinosaur, link in zip(group.dinosaur_names, group.dinosaur_links) %}
-    <a class="text-white hover:text-gray-500 block" href="{{ link }}">
-      {{ dinosaur.capitalize() }}
-    </a>
-    {% endfor %}
+  <div class="flex flex-col items-center content-center m-5">
+    <!-- might need to make this header reusable (using jinja templates?) so it doesnt repeat -->
+    <h1
+      class="text-2xl content-center bg-gradient-to-br from-white from-40% to-pink-500 text-transparent bg-clip-text"
+    >
+      {{ type.capitalize() }}
+    </h1>
+    {% if diet %}
+    <p
+      class="content-center bg-gradient-to-br from-white from-40% to-pink-500 text-transparent bg-clip-text"
+    >
+      {{diet.capitalize()}}
+    </p>
+    {% endif %}
   </div>
-</div>
+  <img src="{{ url_for('static', filename='img/dino.gif') }}" alt="dinosaur playing with balls" class="fixed animate-spin z-10" />
+  {% if request.path == url_for('type_page', type=type)|unquote %}
+  <div class="flex justify-center">{% include 'diet_pie.html' %}</div>
+  {% endif %}
+  {% for group in alphabetical_groups %}
+  <div class="m-5 z-90">
+    <h3 class="text-xl text-white cursor-pointer" onclick="toggleDropdown(this)">
+      {{ group.first_letter }} ▼
+    </h3>
+    <div class="pl-5 hidden">
+      {% for dinosaur, link in zip(group.dinosaur_names, group.dinosaur_links) %}
+      <a class="text-white hover:text-gray-500 block" href="{{ link }}">
+        {{ dinosaur.capitalize() }}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
 {% endfor %} {% endblock %}
