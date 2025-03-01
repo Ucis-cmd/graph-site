@@ -16,6 +16,8 @@ dependencies = [
     "numpy (>=2.2.2,<3.0.0)"
 ]
 
+[tool.poetry]
+packages = [{ include = "custom_plugins", from = "graph_site" },]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

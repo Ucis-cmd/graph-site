@@ -1,0 +1,529 @@
+
+
+<style>
+
+</style>
+
+<div id="fig_el6064824681718432329363959726"></div>
+<script>
+function mpld3_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
+
+if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
+   // already loaded: just create the figure
+   !function(mpld3){
+       
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+       mpld3.draw_figure("fig_el6064824681718432329363959726", {"width": 640.0, "height": 480.0, "axes": [{"bbox": [0.125, 0.10999999999999999, 0.775, 0.77], "xlim": [-0.69, 5.6899999999999995], "ylim": [0.0, 72.45], "xdomain": [-0.69, 5.6899999999999995], "ydomain": [0.0, 72.45], "xscale": "linear", "yscale": "linear", "axes": [{"position": "bottom", "nticks": 0, "tickvalues": [], "tickformat_formatter": "", "tickformat": "", "scale": "linear", "fontsize": null, "grid": {"gridOn": false}, "visible": true}, {"position": "left", "nticks": 9, "tickvalues": null, "tickformat_formatter": "", "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": false}, "visible": true}], "axesbg": "#FFFFFF", "axesbgalpha": null, "zoomable": true, "id": "el606482468171847168", "lines": [], "paths": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172228368", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data02", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172227984", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data03", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172229424", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data04", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172230048", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data05", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172230528", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data03", "xindex": 2, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172231008", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}], "markers": [], "texts": [{"text": "Armoured dinosaur", "position": [0.0, 35.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172228032"}, {"text": "Ceratopsian", "position": [1.0, 31.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172231152"}, {"text": "Euornithopod", "position": [2.0, 62.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172232016"}, {"text": "Large theropod", "position": [3.0, 63.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172232640"}, {"text": "Sauropod", "position": [4.0, 72.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172233264"}, {"text": "Small theropod", "position": [5.0, 62.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172233888"}, {"text": "Dinosaur types", "position": [0.5, -0.015031265031265034], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468171849568"}, {"text": "Amount", "position": [-0.06633624551971327, 0.5], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -90.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468171850576"}, {"text": "Dinosaurs", "position": [0.5, 1.0225468975468974], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -0.0, "fontsize": 12.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172218720"}], "collections": [], "images": [], "sharex": [], "sharey": []}], "data": {"data01": [[-0.4, 0.0], [0.4, 0.0], [0.4, 32.0], [-0.4, 32.0]], "data02": [[0.6, 0.0], [1.4, 0.0], [1.4, 28.0], [0.6, 28.0]], "data03": [[1.6, 0.0, 4.6], [2.4000000000000004, 0.0, 5.3999999999999995], [2.4000000000000004, 59.0, 5.3999999999999995], [1.6, 59.0, 4.6]], "data04": [[2.6, 0.0], [3.4000000000000004, 0.0], [3.4000000000000004, 60.0], [2.6, 60.0]], "data05": [[3.6, 0.0], [4.4, 0.0], [4.4, 69.0], [3.6, 69.0]]}, "id": "el606482468171843232", "plugins": [{"type": "reset"}, {"type": "zoom", "button": true, "enabled": false}, {"type": "boxzoom", "button": true, "enabled": false}, {"type": "highlightbar", "id": "el606482468172228368", "link": "/armoured dinosaur"}, {"type": "highlightbar", "id": "el606482468172227984", "link": "/ceratopsian"}, {"type": "highlightbar", "id": "el606482468172229424", "link": "/euornithopod"}, {"type": "highlightbar", "id": "el606482468172230048", "link": "/large theropod"}, {"type": "highlightbar", "id": "el606482468172230528", "link": "/sauropod"}, {"type": "highlightbar", "id": "el606482468172231008", "link": "/small theropod"}]});
+   }(mpld3);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/mpld3
+   require.config({paths: {d3: "https://d3js.org/d3.v5"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.5.10.js", function(){
+         
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+         mpld3.draw_figure("fig_el6064824681718432329363959726", {"width": 640.0, "height": 480.0, "axes": [{"bbox": [0.125, 0.10999999999999999, 0.775, 0.77], "xlim": [-0.69, 5.6899999999999995], "ylim": [0.0, 72.45], "xdomain": [-0.69, 5.6899999999999995], "ydomain": [0.0, 72.45], "xscale": "linear", "yscale": "linear", "axes": [{"position": "bottom", "nticks": 0, "tickvalues": [], "tickformat_formatter": "", "tickformat": "", "scale": "linear", "fontsize": null, "grid": {"gridOn": false}, "visible": true}, {"position": "left", "nticks": 9, "tickvalues": null, "tickformat_formatter": "", "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": false}, "visible": true}], "axesbg": "#FFFFFF", "axesbgalpha": null, "zoomable": true, "id": "el606482468171847168", "lines": [], "paths": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172228368", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data02", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172227984", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data03", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172229424", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data04", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172230048", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data05", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172230528", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data03", "xindex": 2, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172231008", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}], "markers": [], "texts": [{"text": "Armoured dinosaur", "position": [0.0, 35.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172228032"}, {"text": "Ceratopsian", "position": [1.0, 31.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172231152"}, {"text": "Euornithopod", "position": [2.0, 62.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172232016"}, {"text": "Large theropod", "position": [3.0, 63.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172232640"}, {"text": "Sauropod", "position": [4.0, 72.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172233264"}, {"text": "Small theropod", "position": [5.0, 62.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172233888"}, {"text": "Dinosaur types", "position": [0.5, -0.015031265031265034], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468171849568"}, {"text": "Amount", "position": [-0.06633624551971327, 0.5], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -90.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468171850576"}, {"text": "Dinosaurs", "position": [0.5, 1.0225468975468974], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -0.0, "fontsize": 12.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172218720"}], "collections": [], "images": [], "sharex": [], "sharey": []}], "data": {"data01": [[-0.4, 0.0], [0.4, 0.0], [0.4, 32.0], [-0.4, 32.0]], "data02": [[0.6, 0.0], [1.4, 0.0], [1.4, 28.0], [0.6, 28.0]], "data03": [[1.6, 0.0, 4.6], [2.4000000000000004, 0.0, 5.3999999999999995], [2.4000000000000004, 59.0, 5.3999999999999995], [1.6, 59.0, 4.6]], "data04": [[2.6, 0.0], [3.4000000000000004, 0.0], [3.4000000000000004, 60.0], [2.6, 60.0]], "data05": [[3.6, 0.0], [4.4, 0.0], [4.4, 69.0], [3.6, 69.0]]}, "id": "el606482468171843232", "plugins": [{"type": "reset"}, {"type": "zoom", "button": true, "enabled": false}, {"type": "boxzoom", "button": true, "enabled": false}, {"type": "highlightbar", "id": "el606482468172228368", "link": "/armoured dinosaur"}, {"type": "highlightbar", "id": "el606482468172227984", "link": "/ceratopsian"}, {"type": "highlightbar", "id": "el606482468172229424", "link": "/euornithopod"}, {"type": "highlightbar", "id": "el606482468172230048", "link": "/large theropod"}, {"type": "highlightbar", "id": "el606482468172230528", "link": "/sauropod"}, {"type": "highlightbar", "id": "el606482468172231008", "link": "/small theropod"}]});
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & mpld3
+    mpld3_load_lib("https://d3js.org/d3.v5.js", function(){
+         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.5.10.js", function(){
+                 
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+    mpld3.register_plugin("highlightbar", HighlightBarPlugin);
+    HighlightBarPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HighlightBarPlugin.prototype.constructor = HighlightBarPlugin;
+    HighlightBarPlugin.prototype.requiredProps = ["id", "link"];
+    HighlightBarPlugin.prototype.defaultProps = {};
+
+    function HighlightBarPlugin(fig, props) {
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HighlightBarPlugin.prototype.draw = function() {
+        var obj = mpld3.get_element(this.props.id);
+        var bar = obj.elements();
+
+        // Capture the correct `this` context
+        var self = this;
+
+        bar.on("mouseover", function(d, i) {
+            d3.select(this).style("fill", "orange");
+        }).on("mouseout", function(d, i) {
+            d3.select(this).style("fill", "skyblue");
+        }).on("click", function(d, i) {
+            // Use `self.props` instead of `this.props`
+            window.location.href = self.props.link;
+        });
+    };
+    
+                 mpld3.draw_figure("fig_el6064824681718432329363959726", {"width": 640.0, "height": 480.0, "axes": [{"bbox": [0.125, 0.10999999999999999, 0.775, 0.77], "xlim": [-0.69, 5.6899999999999995], "ylim": [0.0, 72.45], "xdomain": [-0.69, 5.6899999999999995], "ydomain": [0.0, 72.45], "xscale": "linear", "yscale": "linear", "axes": [{"position": "bottom", "nticks": 0, "tickvalues": [], "tickformat_formatter": "", "tickformat": "", "scale": "linear", "fontsize": null, "grid": {"gridOn": false}, "visible": true}, {"position": "left", "nticks": 9, "tickvalues": null, "tickformat_formatter": "", "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": false}, "visible": true}], "axesbg": "#FFFFFF", "axesbgalpha": null, "zoomable": true, "id": "el606482468171847168", "lines": [], "paths": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172228368", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data02", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172227984", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data03", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172229424", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data04", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172230048", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data05", "xindex": 0, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172230528", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}, {"data": "data03", "xindex": 2, "yindex": 1, "coordinates": "data", "pathcodes": ["M", "L", "L", "L", "Z"], "id": "el606482468172231008", "dasharray": "none", "alpha": 1, "facecolor": "#87CEEB", "edgecolor": "none", "edgewidth": 1.0, "zorder": 1}], "markers": [], "texts": [{"text": "Armoured dinosaur", "position": [0.0, 35.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172228032"}, {"text": "Ceratopsian", "position": [1.0, 31.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172231152"}, {"text": "Euornithopod", "position": [2.0, 62.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172232016"}, {"text": "Large theropod", "position": [3.0, 63.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172232640"}, {"text": "Sauropod", "position": [4.0, 72.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172233264"}, {"text": "Small theropod", "position": [5.0, 62.0], "coordinates": "data", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172233888"}, {"text": "Dinosaur types", "position": [0.5, -0.015031265031265034], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468171849568"}, {"text": "Amount", "position": [-0.06633624551971327, 0.5], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -90.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468171850576"}, {"text": "Dinosaurs", "position": [0.5, 1.0225468975468974], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -0.0, "fontsize": 12.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el606482468172218720"}], "collections": [], "images": [], "sharex": [], "sharey": []}], "data": {"data01": [[-0.4, 0.0], [0.4, 0.0], [0.4, 32.0], [-0.4, 32.0]], "data02": [[0.6, 0.0], [1.4, 0.0], [1.4, 28.0], [0.6, 28.0]], "data03": [[1.6, 0.0, 4.6], [2.4000000000000004, 0.0, 5.3999999999999995], [2.4000000000000004, 59.0, 5.3999999999999995], [1.6, 59.0, 4.6]], "data04": [[2.6, 0.0], [3.4000000000000004, 0.0], [3.4000000000000004, 60.0], [2.6, 60.0]], "data05": [[3.6, 0.0], [4.4, 0.0], [4.4, 69.0], [3.6, 69.0]]}, "id": "el606482468171843232", "plugins": [{"type": "reset"}, {"type": "zoom", "button": true, "enabled": false}, {"type": "boxzoom", "button": true, "enabled": false}, {"type": "highlightbar", "id": "el606482468172228368", "link": "/armoured dinosaur"}, {"type": "highlightbar", "id": "el606482468172227984", "link": "/ceratopsian"}, {"type": "highlightbar", "id": "el606482468172229424", "link": "/euornithopod"}, {"type": "highlightbar", "id": "el606482468172230048", "link": "/large theropod"}, {"type": "highlightbar", "id": "el606482468172230528", "link": "/sauropod"}, {"type": "highlightbar", "id": "el606482468172231008", "link": "/small theropod"}]});
+            })
+         });
+}
+</script>

@@ -1,0 +1,11 @@
+#Ignore db
+*.db
+
+#ignore the templates created by main.py (remove when code is deleted from main.py)
+graph1.html
+graph2.html
+diet_pie.html
+
+#ignore all files in folder, excepts gitkeep, because empty folders arent commited
+downloads/*
+!downloads/.gitkeep 
