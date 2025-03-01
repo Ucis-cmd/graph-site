@@ -31,8 +31,7 @@ def csv_to_db(csv_file_path):
     print("Data imported successfully!")
 
 
-def db_to_csv(csv_file_path):
-    query = Dinosaur.select()
+def db_to_csv(csv_file_path, query):
     data = [
         {
             "name": dino.name,
@@ -58,4 +57,3 @@ def db_to_csv(csv_file_path):
     df = pd.DataFrame(data)
 
     df.to_csv(csv_file_path, index=False)
-    print(f"Data exported to {csv_file_path} successfully!")

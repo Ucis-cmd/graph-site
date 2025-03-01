@@ -19,17 +19,18 @@
   </head>
   <body class="font-knewave">
     <div
-      class="bg-gradient-to-br from-pink-500 from-10% via-sky-500 via-30% to-yellow-500 to-90% h-screen overflow-x-hidden z-0"
+      class="bg-gradient-to-br from-pink-500 from-10% via-sky-500 via-30% to-yellow-500 to-90% h-screen overflow-x-hidden"
     >
-      {% include 'navbar.html' %} {%block content %}
-      <div class="flex justify-center content-center m-5">
+      {% include 'navbar.html' %} {% include 'floating_dinos.html' %} {%block
+      content %}
+      <div class="flex justify-center content-center m-5 relative z-10">
         <h1
           class="text-2xl content-center bg-gradient-to-br from-white from-40% to-pink-500 text-transparent bg-clip-text"
         >
           Welcome to the dinosaur website :)
         </h1>
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center relative z-10">
         <img
           class="w-auto"
           src="./static/img/boxer.gif"
@@ -41,7 +42,15 @@
           alt="Dinosaur fighting"
         />
       </div>
-      <div class="flex justify-center">{% include 'graph2.html' %}</div>
+      <div class="flex flex-col items-center">
+        {% include 'graph2.html' %}
+        <a
+          href="{{url_for('download')}}"
+          class="text-white underline hover:text-gray-300 text-xl"
+          >Download data</a
+        >
+      </div>
+
       {% endblock %}
     </div>
     <script>

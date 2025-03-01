@@ -5,3 +5,7 @@
 graph1.html
 graph2.html
 diet_pie.html
+
+#ignore all files in folder, excepts gitkeep, because empty folders arent commited
+downloads/*
+!downloads/.gitkeep 

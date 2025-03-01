@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_file
 import matplotlib.pyplot as plt
 import mpld3
 import numpy as np
@@ -19,9 +19,8 @@ app.jinja_env.filters["unquote"] = unquote
 
 # whats left:
 # make the navbar links
-# make the website responsive, but not necessary (resize depending on screen size, might be hard because of the graphs, havent checked how to resize them, since the html is difficult to access)
+# make the website responsive, but not necessary (resize depending on screen size, might be hard because of the graphs, havent checked how to resize them, since the html is difficult to access, there might have been also difficulties with resizing gifs)
 # change the design of the graphs, select different colors, (check if the background can be made transparent?)
-# ADD MORE F_ING DINOSAUR GIFS (can be found in static/img folder)
 
 
 def init_db():
@@ -153,6 +152,23 @@ def type_diet_page(type, diet):
         alphabetical_groups=alphabetical_groups,
         zip=zip,
     )
+
+
+@app.route("/download")
+@app.route("/download/<type>")
+@app.route("/download/<type>/<diet>")
+def download(type=None, diet=None):
+    if type and diet:
+        query = Dinosaur.select().where(Dinosaur.type == type, Dinosaur.diet == diet)
+        path = f"./downloads/dinosaur_data_{type}_{diet}.csv"
+    elif type:
+        query = Dinosaur.select().where(Dinosaur.type == type)
+        path = f"./downloads/dinosaur_data_{type}.csv"
+    else:
+        query = Dinosaur.select()
+        path = "./downloads/dinosaur_data_.csv"
+    db_to_csv(path, query)
+    return send_file(path, as_attachment=True)
 
 
 @app.route("/graph1")
