@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_file
+from flask import Flask, render_template, send_file, redirect, url_for
 import matplotlib.pyplot as plt
 import mpld3
 import numpy as np
@@ -11,16 +11,20 @@ from peewee import fn
 from models import Dinosaur
 from data_conversions import db_to_csv, csv_to_db
 from werkzeug.urls import unquote
+from forms import DinosaurForm
+
 
 matplotlib.use("agg")
 
 app = Flask(__name__)
 app.jinja_env.filters["unquote"] = unquote
-
+app.config["SECRET_KEY"] = "my key..."  # make this ignored by git
 # whats left:
+# herbivore/carnivore
 # make the navbar links
 # make the website responsive, but not necessary (resize depending on screen size, might be hard because of the graphs, havent checked how to resize them, since the html is difficult to access, there might have been also difficulties with resizing gifs)
 # change the design of the graphs, select different colors, (check if the background can be made transparent?)
+# zoom pie graph out a bit, names cut off
 
 
 def init_db():
@@ -105,6 +109,34 @@ def homepage():
     return render_template("base.html")
 
 
+@app.route("/create", methods=["GET", "POST"])
+def create_dinosaur():
+    form = DinosaurForm()
+    if form.validate_on_submit():
+        dinosaur = Dinosaur(
+            name=form.name.data,
+            diet=form.diet.data,
+            period=form.period.data,
+            period_name=form.period_name.data,
+            lived_in=form.lived_in.data,
+            type=form.type.data,
+            length=form.length.data,
+            taxonomy=form.taxonomy.data,
+            clade1=form.clade1.data,
+            clade2=form.clade2.data,
+            clade3=form.clade3.data,
+            clade4=form.clade4.data,
+            clade5=form.clade5.data,
+            named_by=form.named_by.data,
+            species=form.species.data,
+            link=form.link.data,
+        )
+        # Save the dinosaur to the database
+        dinosaur.save()
+        return redirect(url_for("homepage"))
+    return render_template("create_dinosaur.html", form=form)
+
+
 @app.route("/<type>")
 def type_page(type):
     diet_query = (
@@ -166,7 +198,7 @@ def download(type=None, diet=None):
         path = f"./downloads/dinosaur_data_{type}.csv"
     else:
         query = Dinosaur.select()
-        path = "./downloads/dinosaur_data_.csv"
+        path = "./downloads/dinosaur_data.csv"
     db_to_csv(path, query)
     return send_file(path, as_attachment=True)
 

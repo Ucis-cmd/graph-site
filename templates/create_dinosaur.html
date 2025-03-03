@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block content %} {% set z_index_classes = "relative
+z-20" %}
+<form method="POST" class="flex gap-3 flex-col items-center">
+  {{ form.hidden_tag() }} {% for field in form if field.widget.input_type != 'hidden' and field.widget.input_type != 'submit' %}
+  <p>
+    {{ field.label(class_=z_index_classes + " text-white") }}<br />
+    {% if field.type == 'TextAreaField' %}
+      {{ field(rows=4, class_=z_index_classes + " p-1") }}
+    {% elif field.type == 'SelectField' %}
+      {{ field(class_=z_index_classes) }}
+    {% else %}
+      {{ field(size=32, class_=z_index_classes + " p-1") }}
+    {% endif %}
+    {% if field.errors %}
+      <ul class="errors">
+        {% for error in field.errors %}
+          <li class="text-red-500">{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </p>
+{% endfor %}
+  <p>{{ form.submit(class_=button_classes) }}</p>
+</form>
+
+{% endblock %}

@@ -18,16 +18,14 @@
 <div class="flex flex-col items-center relative z-10">
   {% if request.path == url_for('type_page', type=type)|unquote %} {% include
   'diet_pie.html' %}
-  <a
-    href="{{url_for('download', type=type)}}"
-    class="text-white underline hover:text-gray-300 text-xl"
+  <a href="{{url_for('download', type=type)}}" class="{{button_classes}}"
     >Download data</a
   >
   {% endif %} {% if request.path == url_for('type_diet_page', type=type,
   diet=diet)|unquote %}
   <a
     href="{{url_for('download', type=type, diet=diet)}}"
-    class="text-white underline hover:text-gray-300 text-xl"
+    class="{{button_classes}}"
     >Download data</a
   >
   {% endif %}
