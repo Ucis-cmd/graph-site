@@ -15,9 +15,12 @@
       href="https://fonts.googleapis.com/css2?family=Knewave&family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <title>The dino thing</title>
+    <title>Dinder</title>
   </head>
   <body class="font-knewave">
+    {% set button_classes = "relative z-20 bg-gradient-to-r from-pink-500
+    via-yellow-500 to-red-500 text-white py-2 px-4 rounded hover:opacity-80
+    transition duration-300" %}
     <div
       class="bg-gradient-to-br from-pink-500 from-10% via-sky-500 via-30% to-yellow-500 to-90% h-screen overflow-x-hidden"
     >
@@ -44,9 +47,7 @@
       </div>
       <div class="flex flex-col items-center">
         {% include 'graph2.html' %}
-        <a
-          href="{{url_for('download')}}"
-          class="text-white underline hover:text-gray-300 text-xl"
+        <a href="{{url_for('download')}}" class="{{button_classes}}"
           >Download data</a
         >
       </div>
