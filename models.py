@@ -26,5 +26,5 @@ class Dinosaur(Model):
 
 
 def initialize_db():
-    db.connect()
+    db.connection()
     db.create_tables([Dinosaur])

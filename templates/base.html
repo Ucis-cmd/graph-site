@@ -57,7 +57,7 @@
     <script>
       function toggleDropdown(headerElement) {
         const parentDiv = headerElement.closest("div");
-        const contentDiv = parentDiv.querySelector("div.pl-5");
+        const contentDiv = parentDiv.querySelector("div.dropdown-content-div");
         const isOpen = parentDiv.getAttribute("data-open") === "true";
 
         if (isOpen) {

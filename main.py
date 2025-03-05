@@ -20,9 +20,6 @@ app = Flask(__name__)
 app.jinja_env.filters["unquote"] = unquote
 app.config["SECRET_KEY"] = "my key..."  # make this ignored by git
 # whats left:
-# herbivore/carnivore
-# make the navbar links
-# make the website responsive, but not necessary (resize depending on screen size, might be hard because of the graphs, havent checked how to resize them, since the html is difficult to access, there might have been also difficulties with resizing gifs)
 # change the design of the graphs, select different colors, (check if the background can be made transparent?)
 # zoom pie graph out a bit, names cut off
 
