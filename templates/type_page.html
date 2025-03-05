@@ -35,7 +35,7 @@
   <h3 class="text-xl text-white cursor-pointer" onclick="toggleDropdown(this)">
     {{ group.first_letter }} ▼
   </h3>
-  <div class="pl-5 hidden">
+  <div class="pl-5 hidden dropdown-content-div">
     {% for dinosaur, link in zip(group.dinosaur_names, group.dinosaur_links) %}
     <a class="text-white hover:text-gray-500 block" href="{{ link }}">
       {{ dinosaur.capitalize() }}

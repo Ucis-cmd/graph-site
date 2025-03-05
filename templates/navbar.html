@@ -1,21 +1,55 @@
 <nav
-  class="flex items-center justify-between flex-wrap bg-gray-500 p-6 relative z-10"
+  class="flex items-center justify-between p-6 flex-wrap bg-gray-500 relative z-30"
 >
   <div class="flex items-center flex-shrink-0 text-white mr-6">
-    <a href="/" class="text-xl tracking-tight">The dinosaur</a>
+    <a href="/" class="text-xl tracking-tight">The Dinosaur</a>
   </div>
-  <div class="block lg:hidden">
-    <button
-      class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+  <div class="z-30 relative h-full">
+    <h3
+      class="text-xl text-white cursor-pointer hover:text-gray-300 select-none"
+      onclick="toggleDropdown(this)"
     >
-      <svg
-        class="fill-current h-3 w-3"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
+      Types ▼
+    </h3>
+    <div
+      class="bg-gray-500 border-y border-x-2 absolute hidden dropdown-content-div rounded-md top-12 right-0"
+    >
+      <a
+        class="text-white hover:bg-gray-400 block py-3 px-5 border-y border-white"
+        href="/armoured dinosaur"
       >
-        <title>Menu</title>
-        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-      </svg>
-    </button>
+        Armoured Dinosaur
+      </a>
+      <a
+        class="text-white hover:bg-gray-400 block py-3 px-5 border-y border-white"
+        href="/ceratopsian"
+      >
+        Ceratopsian
+      </a>
+      <a
+        class="text-white hover:bg-gray-400 block py-3 px-5 border-y border-white"
+        href="/euornithopod"
+      >
+        Euornithopod
+      </a>
+      <a
+        class="text-white hover:bg-gray-400 block py-3 px-5 border-y border-white"
+        href="/large theropod"
+      >
+        Large Theropod
+      </a>
+      <a
+        class="text-white hover:bg-gray-400 block py-3 px-5 border-y border-white"
+        href="/sauropod"
+      >
+        Sauropod
+      </a>
+      <a
+        class="text-white hover:bg-gray-400 block py-3 px-5 border-y border-white"
+        href="/small theropod"
+      >
+        Small Theropod
+      </a>
+    </div>
   </div>
 </nav>
