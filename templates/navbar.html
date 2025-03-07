@@ -4,7 +4,12 @@
   <div class="flex items-center flex-shrink-0 text-white mr-6">
     <a href="/" class="text-xl tracking-tight">The Dinosaur</a>
   </div>
-  <div class="z-30 relative h-full">
+  <div class="z-30 relative flex gap-5">
+    <a
+      href="{{url_for('create_dinosaur')}}"
+      class="text-xl text-white cursor-pointer hover:text-gray-300 select-none transition duration-200"
+      >Add dinosaur</a
+    >
     <h3
       class="text-xl text-white cursor-pointer hover:text-gray-300 select-none transition duration-200"
       onclick="toggleDropdown(this)"

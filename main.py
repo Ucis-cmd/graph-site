@@ -1,8 +1,7 @@
 from flask import Flask, render_template, send_file, redirect, url_for
+import numpy as np
 import matplotlib.pyplot as plt
 import mpld3
-import numpy as np
-import pandas as pd
 from mpld3 import plugins
 import matplotlib
 from custom_plugins.HighlightBar import HighlightBarPlugin
@@ -18,10 +17,13 @@ matplotlib.use("agg")
 
 app = Flask(__name__)
 app.jinja_env.filters["unquote"] = unquote
-app.config["SECRET_KEY"] = "my key..."  # make this ignored by git
+app.config["SECRET_KEY"] = (
+    "my key..."  # make this ignored by git, or change when sending
+)
+
 # whats left:
-# change the design of the graphs, select different colors, (check if the background can be made transparent?)
-# zoom pie graph out a bit, names cut off
+# add comments
+# add init tutorial to github
 
 
 def init_db():
@@ -74,7 +76,21 @@ def homepage():
         type_count.append(item.count)
         links.append(f"/{item.type}")
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(6, 6))
+
+    gradient = np.linspace(0, 1, 256).reshape(1, -1)
+    gradient = np.vstack((gradient, gradient))
+
+    # Set the extent to match the plot's data range
+    x_min, x_max = -1, len(unique_types)  # Number of categories
+    y_min, y_max = 0, max(type_count) + 10  # Add some padding to the y-axis
+    ax.imshow(
+        gradient,
+        aspect="auto",
+        cmap=plt.get_cmap("rainbow"),
+        extent=(x_min, x_max, y_min, y_max),
+        alpha=0.2,
+    )
 
     bars = ax.bar(unique_types, type_count, color="skyblue")
 
@@ -86,7 +102,7 @@ def homepage():
             category,
             ha="center",
             va="top",
-            fontsize=10,
+            color="black",
         )
         highlight = HighlightBarPlugin(bar, link)
         plugins.connect(
@@ -95,7 +111,6 @@ def homepage():
 
     ax.set_xlabel("Dinosaur types")
     ax.set_ylabel("Amount")
-    ax.set_title("Dinosaurs")
 
     ax.set_xticks([])
 
@@ -151,7 +166,25 @@ def type_page(type):
         diet_count.append(item.count)
 
     fig, ax = plt.subplots()
+
+    gradient = np.linspace(0, 1, 256).reshape(1, -1)
+    gradient = np.vstack((gradient, gradient))
+
+    PIE_LIM = 1.6
+
+    # Set the extent to match the pie chart's unit circle
+    ax.imshow(
+        gradient,
+        aspect="auto",
+        cmap=plt.get_cmap("rainbow"),
+        extent=(-PIE_LIM, PIE_LIM, -PIE_LIM, PIE_LIM),
+        alpha=0.3,
+    )
+
     pie, texts, autotexts = ax.pie(diet_count, labels=diets, autopct="%1.1f%%")
+
+    ax.set_xlim(-PIE_LIM, PIE_LIM)
+    ax.set_ylim(-PIE_LIM, PIE_LIM)
 
     for wedge, diet in zip(pie, diets):
         plugins.connect(fig, HighlightPiePlugin(wedge, f"/{type}/{diet}"))
@@ -198,49 +231,6 @@ def download(type=None, diet=None):
         path = "./downloads/dinosaur_data.csv"
     db_to_csv(path, query)
     return send_file(path, as_attachment=True)
-
-
-@app.route("/graph1")
-def graph1():
-    fig, ax = plt.subplots()
-    ax.grid(True, alpha=0.3)
-
-    N = 50
-    df = pd.DataFrame(index=range(N))
-    df["x"] = np.random.randn(N)
-    df["y"] = np.random.randn(N)
-    df["z"] = np.random.randn(N)
-
-    labels = []
-    targets = []
-    for i in range(N):
-        label = df.iloc[[i], :].T
-        label.columns = ["Row {0}".format(i)]
-        target = round((df.iloc[i, 0]))
-        labels.append(str(label.to_html()))
-        targets.append(f"/{target}")
-
-    points = ax.plot(df.x, df.y, "o", color="b", mec="k", ms=15, mew=1, alpha=0.6)
-
-    ax.set_xlabel("x")
-    ax.set_ylabel("y")
-    ax.set_title("HTML tooltips", size=20)
-
-    tooltip = plugins.PointHTMLTooltip(
-        points[0], labels, targets, voffset=10, hoffset=10
-    )
-    plugins.connect(fig, tooltip)
-
-    html_str = mpld3.fig_to_html(fig)
-
-    with open("./templates/graph1.html", "w") as Html_file:
-        Html_file.write(html_str)
-    return render_template("graph1.html")
-
-
-@app.route("/graph2")
-def graph2():
-    return render_template("graph2.html")
 
 
 if __name__ == "__main__":

@@ -27,7 +27,7 @@ class HighlightPiePlugin(plugins.PluginBase):
     });
 
         pies.on("mouseover", function(d, i) {
-            d3.select(this).style("fill", "orange");
+            d3.select(this).style("fill", "#ffabdb");
         }).on("mouseout", function(d, i) {
             d3.select(this).style("fill", d3.select(this).attr("original-fill"));
         }).on("click", function(d, i) {
