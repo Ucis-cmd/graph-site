@@ -21,7 +21,7 @@ class HighlightBarPlugin(plugins.PluginBase):
         var self = this;
 
         bar.on("mouseover", function(d, i) {
-            d3.select(this).style("fill", "orange");
+            d3.select(this).style("fill", "#ffabdb");
         }).on("mouseout", function(d, i) {
             d3.select(this).style("fill", "skyblue");
         }).on("click", function(d, i) {
