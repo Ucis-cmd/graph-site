@@ -3,6 +3,7 @@ from peewee import SqliteDatabase, Model, CharField, TextField, FloatField
 db = SqliteDatabase("dinosaur.db")
 
 
+# Dinozauru datubāzes kolonnas
 class Dinosaur(Model):
     name = CharField()
     diet = CharField()
