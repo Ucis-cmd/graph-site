@@ -59,6 +59,11 @@ def get_data_alphabetical(*comparisons):
     return alphabetical_groups
 
 
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404_page.html")
+
+
 @app.route("/")
 def homepage():
     query = (
@@ -115,7 +120,7 @@ def homepage():
     ax.set_xticks([])
 
     html_str = mpld3.fig_to_html(fig)
-    with open("./templates/graph2.html", "w") as Html_file:
+    with open("./templates/_types_hist.html", "w") as Html_file:
         Html_file.write(html_str)
 
     return render_template("base.html")
@@ -151,6 +156,11 @@ def create_dinosaur():
 
 @app.route("/<type>")
 def type_page(type):
+
+    data_count = Dinosaur.select().where(Dinosaur.type == type).count()
+    if data_count == 0:
+        return render_template("404_page.html", type=type)
+
     diet_query = (
         Dinosaur.select(Dinosaur.diet, fn.COUNT(Dinosaur.name).alias("count"))
         .where(Dinosaur.type == type)
@@ -190,7 +200,7 @@ def type_page(type):
         plugins.connect(fig, HighlightPiePlugin(wedge, f"/{type}/{diet}"))
 
     html_str = mpld3.fig_to_html(fig)
-    with open("./templates/diet_pie.html", "w") as Html_file:
+    with open("./templates/_diet_pie.html", "w") as Html_file:
         Html_file.write(html_str)
 
     return render_template(
@@ -203,6 +213,12 @@ def type_page(type):
 
 @app.route("/<type>/<diet>")
 def type_diet_page(type, diet):
+    data_count = (
+        Dinosaur.select().where(Dinosaur.type == type, Dinosaur.diet == diet).count()
+    )
+    if data_count == 0:
+        return render_template("404_page.html", type=type, diet=diet)
+
     alphabetical_groups = get_data_alphabetical(
         Dinosaur.type == type, Dinosaur.diet == diet
     )

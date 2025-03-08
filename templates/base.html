@@ -20,18 +20,14 @@
   <body class="font-knewave">
     {% set button_classes = "relative z-20 bg-gradient-to-r from-pink-500
     via-yellow-500 to-red-500 text-white py-2 px-4 rounded hover:opacity-80
-    transition duration-300" %}
+    transition duration-300" %} {% from "_macros.html" import heading %}
     <div
       class="bg-gradient-to-br from-pink-500 from-10% via-sky-500 via-30% to-yellow-500 to-90% h-screen overflow-x-hidden"
     >
-      {% include 'navbar.html' %} {% include 'floating_dinos.html' %} {%block
+      {% include '_navbar.html' %} {% include '_floating_dinos.html' %} {%block
       content %}
       <div class="flex justify-center content-center m-5 relative z-10">
-        <h1
-          class="text-2xl content-center bg-gradient-to-br from-white from-40% to-pink-500 text-transparent bg-clip-text"
-        >
-          Welcome to the dinosaur website :)
-        </h1>
+        {{heading("Welcome to the dinosaur website :)")}}
       </div>
       <div class="flex justify-center relative z-10">
         <img
@@ -46,7 +42,7 @@
         />
       </div>
       <div class="flex flex-col items-center">
-        {% include 'graph2.html' %}
+        {% include '_types_hist.html' %}
         <a href="{{url_for('download')}}" class="{{button_classes}}"
           >Download data</a
         >
