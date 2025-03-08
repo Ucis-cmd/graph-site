@@ -16,14 +16,8 @@ from forms import DinosaurForm
 matplotlib.use("agg")
 
 app = Flask(__name__)
-app.jinja_env.filters["unquote"] = unquote
-app.config["SECRET_KEY"] = (
-    "my key..."  # make this ignored by git, or change when sending
-)
-
-# whats left:
-# add comments
-# add init tutorial to github
+app.jinja_env.filters["unquote"] = unquote  # Pārveido URL uz pareizo formātu
+app.config["SECRET_KEY"] = "your_key"
 
 
 def init_db():
@@ -31,6 +25,7 @@ def init_db():
         csv_to_db("./static/dist/csv/dinosaur_data.csv")
 
 
+# Atlasa datus no datubāzes un atgriež tos sagrupētus pēc alfabēta
 def get_data_alphabetical(*comparisons):
     first_letter_query = fn.Upper(fn.Substr(Dinosaur.name, 1, 1))
     alphabetical_query = (
@@ -45,7 +40,6 @@ def get_data_alphabetical(*comparisons):
         .order_by(first_letter_query)
     )
 
-    # convert the query result to a list of dictionaries
     alphabetical_groups = []
     for group in alphabetical_query:
         alphabetical_groups.append(
@@ -53,29 +47,32 @@ def get_data_alphabetical(*comparisons):
                 "first_letter": group.first_letter,
                 "dinosaur_names": group.dinosaur_names.split(","),
                 "dinosaur_links": group.dinosaur_links.split(","),
-                "count": group.count,
             }
         )
     return alphabetical_groups
 
 
+# Atgriež kļūmes lapu, ja netiek atrasta neviena cita uz to saiti
 @app.errorhandler(404)
 def not_found(e):
     return render_template("404_page.html")
 
 
+# Galvenā lapa
 @app.route("/")
 def homepage():
+
+    # Atlasa dinozauru grupas un skaitu katrā
     query = (
-        Dinosaur.select(
-            Dinosaur.type, Dinosaur.link, fn.COUNT(Dinosaur.name).alias("count")
-        )
+        Dinosaur.select(Dinosaur.type, fn.COUNT(Dinosaur.name).alias("count"))
         .group_by(Dinosaur.type)
         .order_by(Dinosaur.type)
     )
+
     unique_types = []
     type_count = []
     links = []
+
     for item in query:
         unique_types.append(item.type.capitalize())
         type_count.append(item.count)
@@ -83,12 +80,15 @@ def homepage():
 
     fig, ax = plt.subplots(figsize=(6, 6))
 
+    # Nosaka fona krāsu
     gradient = np.linspace(0, 1, 256).reshape(1, -1)
     gradient = np.vstack((gradient, gradient))
 
-    # Set the extent to match the plot's data range
-    x_min, x_max = -1, len(unique_types)  # Number of categories
-    y_min, y_max = 0, max(type_count) + 10  # Add some padding to the y-axis
+    # Nosaka fona izmēru, lai sakristu ar grafika izmēriem
+    x_min, x_max = -1, len(unique_types)
+    y_min, y_max = 0, max(type_count) + 10
+
+    # Attēlo fonu
     ax.imshow(
         gradient,
         aspect="auto",
@@ -101,6 +101,8 @@ def homepage():
 
     for i, (bar, category, link) in enumerate(zip(bars, unique_types, links)):
         height = bar.get_height()
+
+        # Teksts, kas ir virs katra stabiņa
         ax.text(
             bar.get_x() + bar.get_width() / 2,
             height + 3,
@@ -109,16 +111,18 @@ def homepage():
             va="top",
             color="black",
         )
+
+        # Savieno ar izveidotu spraudni, kas iekrāso stabiņu, kad uz tā ir kursors un novirza uz citu saiti, ja uzklikšķina
         highlight = HighlightBarPlugin(bar, link)
-        plugins.connect(
-            plt.gcf(), highlight
-        )  # multiple plugins not working, update highlightbarplugin, if more functionality needed (just ask chatgpt or deepseek to do that)
+        plugins.connect(plt.gcf(), highlight)
 
     ax.set_xlabel("Dinosaur types")
     ax.set_ylabel("Amount")
 
+    # Noņem iedaļas no x ass
     ax.set_xticks([])
 
+    # Saglabā grafiku kā HTML failu
     html_str = mpld3.fig_to_html(fig)
     with open("./templates/_types_hist.html", "w") as Html_file:
         Html_file.write(html_str)
@@ -126,6 +130,7 @@ def homepage():
     return render_template("base.html")
 
 
+# Ļauj saglabāt jaunu dinozauru datubāzē, tad atgriež uz galveno lapu
 @app.route("/create", methods=["GET", "POST"])
 def create_dinosaur():
     form = DinosaurForm()
@@ -148,7 +153,6 @@ def create_dinosaur():
             species=form.species.data,
             link=form.link.data,
         )
-        # Save the dinosaur to the database
         dinosaur.save()
         return redirect(url_for("homepage"))
     return render_template("create_dinosaur.html", form=form)
@@ -156,11 +160,11 @@ def create_dinosaur():
 
 @app.route("/<type>")
 def type_page(type):
-
     data_count = Dinosaur.select().where(Dinosaur.type == type).count()
     if data_count == 0:
-        return render_template("404_page.html", type=type)
+        return render_template("404_page.html")
 
+    # Atlasa dinozauru skaitu pēc diētas, kas ir tajā tipu grupā
     diet_query = (
         Dinosaur.select(Dinosaur.diet, fn.COUNT(Dinosaur.name).alias("count"))
         .where(Dinosaur.type == type)
@@ -180,9 +184,10 @@ def type_page(type):
     gradient = np.linspace(0, 1, 256).reshape(1, -1)
     gradient = np.vstack((gradient, gradient))
 
+    # Nosaka fona malas attālumu no centra
     PIE_LIM = 1.6
 
-    # Set the extent to match the pie chart's unit circle
+    # Attēlo fonu
     ax.imshow(
         gradient,
         aspect="auto",
@@ -193,9 +198,11 @@ def type_page(type):
 
     pie, texts, autotexts = ax.pie(diet_count, labels=diets, autopct="%1.1f%%")
 
+    # Nosaka grafika izmērus, lai sakristu ar fonu
     ax.set_xlim(-PIE_LIM, PIE_LIM)
     ax.set_ylim(-PIE_LIM, PIE_LIM)
 
+    # Savieno katru sektoru ar spraudni, kas iekrāso, kad uz tā ir kursors un novirza uz citu saiti, ja uzklikšķina
     for wedge, diet in zip(pie, diets):
         plugins.connect(fig, HighlightPiePlugin(wedge, f"/{type}/{diet}"))
 
@@ -207,17 +214,18 @@ def type_page(type):
         "type_page.html",
         type=type,
         alphabetical_groups=alphabetical_groups,
-        zip=zip,  # unquote is used to convert url to the same format as request.path
+        zip=zip,
     )
 
 
+# Atgriež lapu, kur ir noteikta tipa un diētas dinozauri
 @app.route("/<type>/<diet>")
 def type_diet_page(type, diet):
     data_count = (
         Dinosaur.select().where(Dinosaur.type == type, Dinosaur.diet == diet).count()
     )
     if data_count == 0:
-        return render_template("404_page.html", type=type, diet=diet)
+        return render_template("404_page.html")
 
     alphabetical_groups = get_data_alphabetical(
         Dinosaur.type == type, Dinosaur.diet == diet
@@ -232,6 +240,7 @@ def type_diet_page(type, diet):
     )
 
 
+# Atgriež lejupielādētu csv failu, kurā ir pieprasītā tipa un diētas dinozauri
 @app.route("/download")
 @app.route("/download/<type>")
 @app.route("/download/<type>/<diet>")

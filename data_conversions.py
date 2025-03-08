@@ -2,6 +2,7 @@ import pandas as pd
 from models import Dinosaur, initialize_db
 
 
+# Izmanto, inicializējot datubāzi, lai iegūtu datus CSV faila
 def csv_to_db(csv_file_path):
 
     df = pd.read_csv(csv_file_path)
@@ -31,6 +32,7 @@ def csv_to_db(csv_file_path):
     print("Data imported successfully!")
 
 
+# Pārveido atlasītos datus no datubāzes par CSV failu
 def db_to_csv(csv_file_path, query):
     data = [
         {

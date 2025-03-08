@@ -3,10 +3,10 @@ from wtforms import StringField, TextAreaField, SubmitField, SelectField, FloatF
 from wtforms.validators import DataRequired, Optional
 
 
+# Dinozauru anketa
 class DinosaurForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
 
-    # Updated diet field to use SelectField
     diet = SelectField(
         "Diet",
         choices=[
@@ -22,7 +22,6 @@ class DinosaurForm(FlaskForm):
     period_name = StringField("Period Name", validators=[DataRequired()])
     lived_in = StringField("Lived In", validators=[DataRequired()])
 
-    # Updated type field with new options (using single whitespace)
     type = SelectField(
         "Type",
         choices=[
