@@ -1,5 +1,7 @@
 *.db
 
+*.venv
+
 _diet_pie.html
 _types_hist.html
 
